@@ -91,7 +91,7 @@ if (isset($_POST['select'])) {
 }
 /*if no select detected: default->name*/
 else {
-  $filtre=NULL;
+  $select=NULL;
 }
 /*get list */
 $books= $manager->getBookList($select);
@@ -107,6 +107,6 @@ $users= $manager->getUserList();
 
 
 
-require("view/listingView.php");
+require("view/indexView.php");
 
  ?>
