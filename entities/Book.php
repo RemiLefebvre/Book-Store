@@ -10,10 +10,10 @@
    protected $cat;
    protected $author;
    protected $resume;
-   protected $date;
+   protected $publication;
    protected $editor;
    protected $score;
-   protected $avaibality;
+   protected $availability;
 
    public function construct(array $donnees){
      $this->hydrate($donnees);
@@ -95,12 +95,12 @@
            /**
      * Get the value of Date
     */
-    public function getDate(){return $this->date;}
+    public function getDate(){return $this->publication;}
            /**
      * Set the value of Date
      */
-    public function setDate($date){
-        $this->date = $date;
+    public function setDate($publication){
+        $this->publication = $publication;
         return $this;
     }
            /**
@@ -136,8 +136,8 @@
            /**
      * Set the value of Avaibality
      */
-    public function setAvaibality(int $avaibality){
-        $this->avaibality = $avaibality;
+    public function setAvaibality(int $availability){
+        $this->avaibality = $availability;
         return $this;
     }
   }
