@@ -82,34 +82,25 @@ if (isset($_POST['add'])) {
 
 
 /*
-**Delete vehicule
-*/
-if (isset($_POST['supp']) && isset($_POST['id'])) {
-  $suppVehicule=intval(htmlspecialchars($_POST['id']));
-  $manager->delete($suppVehicule);
-}
-
-/*
-**Get Véhicule list
+**Get books list
 **If filtring
 */
-if (isset($_POST['filtre'])) {
+if (isset($_POST['select'])) {
   /*protect XSS failling*/
-  $filtre=htmlspecialchars($_POST['filtre']);
+  $select=htmlspecialchars($_POST['select']);
 }
-/*if no filtre detected: default->name*/
+/*if no select detected: default->name*/
 else {
-  $filtre='name';
+  $filtre=NULL;
 }
 /*get list */
-$vehicules= $manager->getList($filtre);
+$books= $manager->getBookList($select);
 
 
 /*
-**Get Véhicule list
-**If filtring
+**Get users list
 */
-$firstVehicules= $manager->getFirstVehicle();
+$users= $manager->getUserList();
 
 
 

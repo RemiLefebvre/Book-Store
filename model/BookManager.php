@@ -70,10 +70,15 @@ class BookManager{
     */
     public function getBookList($select){
       $bookList = [];
-      $q = $this->db->prepare('SELECT * FROM books WHERE cat=:cat ORDER BY id DESC');
-      $q->execute(array(
-        'cat'=>$select
-      ));
+      if ($select==NULL) {
+        $q = $this->db->query('SELECT * FROM books ORDER BY id DESC');
+      }
+      else {
+        $q = $this->db->prepare('SELECT * FROM books WHERE cat=:cat ORDER BY id DESC');
+        $q->execute(array(
+          'cat'=>$select
+        ));
+      }
 
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC)){
         $bookList[] = new $donnees['cat'](['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
