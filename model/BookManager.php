@@ -41,16 +41,29 @@ class BookManager{
   }
 
   /*
+  **Get bookdetail
+  */
+  public function getBookDetails($info){
+    $q = $this->db->query('SELECT name, author, resume, publication, cat, editor, score, availability FROM books WHERE id ='.$info);
+    $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+    $book = new $donnees['cat'](['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
+
+    return $book;
+  }
+
+  /*
   **Get book
   */
   public function getBook($info){
-      $q = $this->db->query('SELECT name, author, resume, publication, cat, editor, score, availability FROM books WHERE id ='.$info);
-      $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    $q = $this->db->query('SELECT cat, availability FROM books WHERE id ='.$info);
+    $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-      $book = new $donnees['cat'](['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
+    $book = new $donnees['cat'](['availability'=>$donnees['availability']]);
 
-      return $book;
-    }
+    return $book;
+  }
+
 
     /*
     **Get bookList

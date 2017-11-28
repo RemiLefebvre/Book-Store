@@ -41,7 +41,8 @@
         $this->id = $id;
         return $this;
     }
-           /**
+
+     /**
      * Get the value of Name
     */
     public function getName(){return $this->name;}
@@ -54,11 +55,11 @@
         return $this;
       }
     }
-     /**
-     * Get the value of Cat
-    */
-    public function getCat(){return $this->cat;}
 
+    /**
+   * Get the value of Cat
+  */
+    public function getCat(){return $this->cat;}
    /**
    * Set the value of Cat
    */
@@ -68,11 +69,12 @@
         return $this;
       }
     }
-           /**
+
+     /**
      * Get the value of Author
     */
     public function getAuthor(){return $this->author;}
-           /**
+     /**
      * Set the value of Author
      */
     public function setAuthor(string $author){
@@ -81,7 +83,8 @@
         return $this;
       }
     }
-           /**
+
+     /**
      * Get the value of Resume
     */
     public function getResume(){return $this->resume;}
@@ -92,18 +95,22 @@
         $this->resume = $resume;
         return $this;
     }
-           /**
-     * Get the value of Date
+
+     /**
+     * Get the value of Publication
     */
-    public function getDate(){return $this->publication;}
-           /**
-     * Set the value of Date
+    public function getPublication(){return $this->publication;}
+     /**
+     * Set the value of Publication
      */
-    public function setDate($publication){
+    public function setPublication($publication){
+      if (strlen($publication)< 4) {
         $this->publication = $publication;
         return $this;
+      }
     }
-           /**
+
+     /**
      * Get the value of Editor
     */
     public function getEditor(){return $this->editor;}
@@ -116,7 +123,8 @@
         return $this;
       }
     }
-           /**
+
+     /**
      * Get the value of Score
     */
     public function getScore(){return $this->score;}
@@ -129,7 +137,8 @@
         return $this;
       }
     }
-           /**
+
+     /**
      * Get the value of Avaibality
     */
     public function getAvaibality(){return $this->avaibality;}
