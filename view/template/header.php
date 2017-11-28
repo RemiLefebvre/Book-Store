@@ -27,8 +27,9 @@
     </head>
     <body>
       <header class="d-flex">
-        <h1>Book store</h1>
         <figure class="logo">
           <img src="http://www.eatlogos.com/education_logos/png/vector_colourful_education_book_logo.png" alt="">
         </figure>
+        <h1>Book store</h1>
+        <a href="index.php">Home</a>
       </header>

@@ -1,4 +1,6 @@
 <?php
+require("entities/AdultsBook.php");
+require("entities/ChildsBook.php");
 
 
 /*
@@ -15,7 +17,7 @@
    protected $score;
    protected $availability;
 
-   public function construct(array $donnees){
+   public function __construct(array $donnees){
      $this->hydrate($donnees);
      $this->type = strtolower(static::class);
    }
@@ -23,7 +25,7 @@
    public function hydrate(array $donnees){
      foreach ($donnees as $key => $value){
        $method = 'set'.ucfirst($key);
-       if (methodexists($this, $method)){
+       if (method_exists($this, $method)){
          $this->$method($value);
        }
      }
@@ -33,7 +35,7 @@
     /**
      * Get the value of Id
     */
-    public function getId(){return $this->id;}
+    public function id(){return $this->id;}
            /**
      * Set the value of Id
      */
@@ -45,7 +47,7 @@
      /**
      * Get the value of Name
     */
-    public function getName(){return $this->name;}
+    public function name(){return $this->name;}
            /**
      * Set the value of Name
      */
@@ -59,7 +61,7 @@
     /**
    * Get the value of Cat
   */
-    public function getCat(){return $this->cat;}
+    public function cat(){return $this->cat;}
    /**
    * Set the value of Cat
    */
@@ -73,7 +75,7 @@
      /**
      * Get the value of Author
     */
-    public function getAuthor(){return $this->author;}
+    public function author(){return $this->author;}
      /**
      * Set the value of Author
      */
@@ -87,7 +89,7 @@
      /**
      * Get the value of Resume
     */
-    public function getResume(){return $this->resume;}
+    public function resume(){return $this->resume;}
            /**
      * Set the value of Resume
      */
@@ -99,12 +101,12 @@
      /**
      * Get the value of Publication
     */
-    public function getPublication(){return $this->publication;}
+    public function publication(){return $this->publication;}
      /**
      * Set the value of Publication
      */
-    public function setPublication($publication){
-      if (strlen($publication)< 4) {
+    public function setPublication(int $publication){
+      if (strlen($publication)==4) {
         $this->publication = $publication;
         return $this;
       }
@@ -113,12 +115,12 @@
      /**
      * Get the value of Editor
     */
-    public function getEditor(){return $this->editor;}
+    public function editor(){return $this->editor;}
            /**
      * Set the value of Editor
      */
-    public function setEditor($editor){
-      if (strlen($editor)<30) {
+    public function setEditor(string $editor){
+      if (strlen($editor)<30){
         $this->editor = $editor;
         return $this;
       }
@@ -127,26 +129,26 @@
      /**
      * Get the value of Score
     */
-    public function getScore(){return $this->score;}
-           /**
+    public function score(){return $this->score;}
+     /**
      * Set the value of Score
      */
     public function setScore(int $score){
-      if ($scrore<=5) {
+      if ($score<=5) {
         $this->score = $score;
         return $this;
       }
     }
 
      /**
-     * Get the value of Avaibality
+     * Get the value of availability
     */
-    public function getAvaibality(){return $this->avaibality;}
+    public function availability(){return $this->availability;}
            /**
-     * Set the value of Avaibality
+     * Set the value of availability
      */
-    public function setAvaibality(int $availability){
-        $this->avaibality = $availability;
+    public function setAvailability(int $availability){
+        $this->availability = $availability;
         return $this;
     }
   }

@@ -1,5 +1,7 @@
 <?php
 require("phpmyadmin.php");
+require("entities/Book.php");
+
 
 /*
 **Manager of Books class
@@ -44,10 +46,10 @@ class BookManager{
   **Get bookdetail
   */
   public function getBookDetails($info){
-    $q = $this->db->query('SELECT name, author, resume, publication, cat, editor, score, availability FROM books WHERE id ='.$info);
+    $q = $this->db->query('SELECT id ,name, author, resume, publication, cat, editor, score, availability FROM books WHERE id ='.$info);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-    $book = new $donnees['cat'](['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
+    $book = new $donnees['cat']($donnees);
 
     return $book;
   }
@@ -79,10 +81,12 @@ class BookManager{
           'cat'=>$select
         ));
       }
-
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC)){
-        $bookList[] = new $donnees['cat'](['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
+          $bookList[] = new $donnees['cat']($donnees);
       }
+      echo "<pre>";
+      var_dump($bookList);
+      echo "</pre>";
       return $bookList;
     }
 
@@ -95,7 +99,7 @@ class BookManager{
       $q = $this->db->query('SELECT * FROM users ORDER BY id DESC');
 
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC)){
-        $userList[] = new $donnees['cat'](['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
+        $userList[] = new $donnees['cat']($donnees);
       }
       return $userList;
     }
