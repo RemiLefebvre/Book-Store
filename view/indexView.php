@@ -18,7 +18,7 @@
       <option value="adultsBook">Adult</option>
       <option value="childsBook">Child</option>
     </select>
-    <input type="text" name="editor" placeholder="Editor">
+    <input type="text" name="editor" placeholder="Editor"><br>
     <label for="">Score:</label>
     <select class="" name="score">
       <option value="1">1</option>
@@ -28,7 +28,7 @@
       <option value="5">5</option>
     </select>
     <br>
-    <textarea name="resume" rows="8" cols="80"></textarea>
+    <textarea name="resume" rows="8" cols="80" placeholder="Resume"></textarea>
     <br>
     <input type="submit" name="add" value="Ok">
   </form>
