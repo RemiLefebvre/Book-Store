@@ -4,7 +4,7 @@
 /*
 ** Detail of book
 */
-if (isset($_POST['detailBook'])) {
+if (isset($_POST['bookDetails'])) {
   include("controllers/details/details.php");
 }
 

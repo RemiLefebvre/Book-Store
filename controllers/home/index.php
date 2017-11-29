@@ -55,14 +55,14 @@ if (isset($_POST['add'])) {
 
         /*protect XSS failling*/
         $name=htmlspecialchars($_POST['name']);
+        $cat=htmlspecialchars($_POST['cat']);
+        $editor=htmlspecialchars($_POST['editor']);
         $author=htmlspecialchars($_POST['author']);
         $resume=htmlspecialchars($_POST['resume']);
         $publication=intval(htmlspecialchars($_POST['publication']));
-        $cat=intval(htmlspecialchars($_POST['cat']));
-        $editor=intval(htmlspecialchars($_POST['editor']));
         $score=intval(htmlspecialchars($_POST['score']));
 
-        $addVehicule= new $type(['name'=>$donnees['name'], 'author'=>$donnees['author'], 'resume'=>$donnees['resume'], 'publication'=>$donnees['publication'], 'cat'=>$donnees['cat'], 'editor'=>$donnees['editor'], 'score'=>$donnees['score'], 'availability'=>$donnees['availability']]);
+        $addVehicule= new $cat(['name'=>$name, 'author'=>$author, 'resume'=>$resume, 'publication'=>$publication, 'cat'=>$cat, 'editor'=>$editor, 'score'=>$score]);
 
         // add on DDB
         $manager->add($addVehicule);

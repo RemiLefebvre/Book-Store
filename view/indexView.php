@@ -13,8 +13,8 @@
     <input type="text" name="author" placeholder="Author">
     <input type="text" name="publication" placeholder="Publication">
     <select class="" name="cat">
-      <option value="adultBook">Adult</option>
-      <option value="childBook">Child</option>
+      <option value="adultsBook">Adult</option>
+      <option value="childsBook">Child</option>
     </select>
     <input type="text" name="editor" placeholder="Editor">
     <label for="">Score:</label>
@@ -34,41 +34,66 @@
   <hr>
   <hr>
 
-  <div class="mt-4 accounts">
-    <div class="d-flex">
-      <h5 class="tab"><strong>Name</strong></h5>
-      <h5 class="tab"><strong>Author</strong></h5>
-      <h5 class="tab"><strong>Publication</strong></h5>
-      <h5 class="tab"><strong>Category</strong></h5>
-      <h5 class="tab"><strong>Editor</strong></h5>
-      <h5 class="tab"><strong>Score</strong></h5>
-      <h5 class="tab"><strong>Availability</strong></h5>
-      <h5 class="tab"><strong>See more</strong></h5>
-    </div>
-
-    <?php
-    // var_dump($books);
-      foreach ($books as $book) {
-        ?>
-        <div class="account">
-          <div class="d-flex infos">
-            <h5 class="tab"><?php echo $book->name() ?></h5>
-            <h5 class="tab"><?php echo $book->author() ?></h5>
-            <h5 class="tab"><?php echo $book->publication() ?></h5>
-            <h5 class="tab"><?php echo $book->cat() ?></h5>
-            <h5 class="tab"><?php echo $book->editor() ?></h5>
-            <h5 class="tab"><?php echo $book->score() ?></h5>
-            <h5 class="tab"><?php echo $book->availability() ?></h5>
-            <form class="options" action="index.php" method="post">
-              <input type="hidden" name="id" value="<?php echo $book->id()?>">
-              <input type="submit " name="detailBook" value="See more">
+  <h2>List of Books</h2>
+  <table class="table-hover table-responsive">
+    <thead>
+      <tr>
+        <th class=""><strong>Name</strong></th>
+        <th class=""><strong>Author</strong></th>
+        <th class=""><strong>Publication</strong></th>
+        <th class=""><strong>Category</strong></th>
+        <th class=""><strong>Editor</strong></th>
+        <th class=""><strong>Score</strong></th>
+        <th class=""><strong>Availability</strong></th>
+        <th class=""><strong>See more</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($books as $book) {?>
+          <tr>
+            <form  action="index.php" method="post">
+              <td class=""><?php echo $book->name() ?></td>
+              <td class=""><?php echo $book->author() ?></td>
+              <td class=""><?php echo $book->publication() ?></td>
+              <td class=""><?php echo $book->cat() ?></td>
+              <td class=""><?php echo $book->editor() ?></td>
+              <td class=""><?php echo $book->score() ?></td>
+              <td class=""><?php echo $book->availability() ?></td>
+              <td class="">
+                <input type="submit" name="bookDetails" value="See more">
+                <input type="hidden" name="id" value="<?php  echo $book->id()?>">
+              </td>
             </form>
-          </div>
-        </div>
-        <?php
-      }
-      ?>
-  </div>
+          </tr>
+          <?php
+      } ?>
+    </tbody>
+  </table>
+
+  <hr>
+  <hr>
+
+  <h2>List of users</h2>
+  <table class="table-hover table-responsive">
+    <thead>
+      <tr>
+        <th class=""><strong>User</strong></th>
+        <th class=""><strong>Id client</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($users as $user) {?>
+          <tr>
+            <form  action="index.php" method="post">
+              <td class=""><?php echo $user['name'] ?></td>
+              <td class=""><?php echo $user['idClient'] ?></td>
+            </form>
+          </tr>
+          <?php
+      } ?>
+    </tbody>
+  </table>
+
 </main>
 
 <?php include_once("view/template/footer.php") ?>

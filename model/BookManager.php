@@ -26,8 +26,7 @@ class BookManager{
   **Add books
   */
   public function add(Book $book){
-    // echo $book->name();
-    $q = $this->db->prepare('INSERT INTO books(name, author, resume, publication, cat, editor, score, availability ) VALUES(:name, :author, :resume, :publication, :cat, :editor, :score, :availability)');
+    $q = $this->db->prepare('INSERT INTO books(name, author, resume, publication, cat, editor, score) VALUES(:name, :author, :resume, :publication, :cat, :editor, :score)');
     $q->execute(array(
       'name'=>$book->name(),
       'author'=>$book->author(),
@@ -35,8 +34,7 @@ class BookManager{
       'publication'=>$book->publication(),
       'cat'=>$book->cat(),
       'editor'=>$book->editor(),
-      'score'=>$book->score(),
-      'availability'=>$book->availability()
+      'score'=>$book->score()
     ));
 
     return true;
@@ -84,9 +82,7 @@ class BookManager{
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC)){
           $bookList[] = new $donnees['cat']($donnees);
       }
-      echo "<pre>";
-      var_dump($bookList);
-      echo "</pre>";
+
       return $bookList;
     }
 
@@ -99,7 +95,7 @@ class BookManager{
       $q = $this->db->query('SELECT * FROM users ORDER BY id DESC');
 
       while ($donnees = $q->fetch(PDO::FETCH_ASSOC)){
-        $userList[] = new $donnees['cat']($donnees);
+        $userList[] = $donnees;
       }
       return $userList;
     }
