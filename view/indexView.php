@@ -58,7 +58,13 @@
               <td class=""><?php echo $book->cat() ?></td>
               <td class=""><?php echo $book->editor() ?></td>
               <td class=""><?php echo $book->score() ?></td>
-              <td class=""><?php echo $book->availability() ?></td>
+              <td class="">
+                <?php if ($book->availability()==1){ ?>
+                  Available
+                <?php }else{ ?>
+                  Unavaible
+                <?php }  ?>
+              </td>
               <td class="">
                 <input type="submit" name="bookDetails" value="See more">
                 <input type="hidden" name="id" value="<?php  echo $book->id()?>">

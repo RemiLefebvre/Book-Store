@@ -56,10 +56,10 @@ class BookManager{
   **Get book
   */
   public function getBook($info){
-    $q = $this->db->query('SELECT cat, availability FROM books WHERE id ='.$info);
+    $q = $this->db->query('SELECT * FROM books WHERE id ='.$info);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-    $book = new $donnees['cat'](['availability'=>$donnees['availability']]);
+    $book = new $donnees['cat']($donnees);
 
     return $book;
   }
@@ -104,10 +104,10 @@ class BookManager{
     **change availability
     */
     public function changeAvailability(Book $book){
-      $q = $this->_db->prepare('UPDATE books SET availability = :availability WHERE id = :id');
+      $q = $this->db->prepare('UPDATE books SET availability = :availability WHERE id = :id');
       $q->execute(array(
-        'id'=>$vehicule->id(),
-        'availability'=>$vehicule->availability()
+        'id'=>$book->id(),
+        'availability'=>$book->availability()
       ));
 
       return true;
