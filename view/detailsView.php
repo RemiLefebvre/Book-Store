@@ -11,7 +11,7 @@
     <h3>Add Book:</h3>
     <input type="text" name="name" placeholder="Name">
     <input type="text" name="author" placeholder="Author">
-    <input type="text" name="publication" placeholder="Publication">
+    <input type="text" name="publication" placeholder="Publication  YYYY (ex:2001)">
     <select class="" name="cat">
       <option value="adultsBook">Adult</option>
       <option value="childsBook">Child</option>
