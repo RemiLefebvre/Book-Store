@@ -5,6 +5,8 @@
 
 
 <main class="mt-5 container card">
+
+  <!-- FORM ADD -->
   <form class="mb-5 addForm" action="index.php" method="post">
     <h3>Add Book:</h3>
     <input type="text" name="name" placeholder="Name">
@@ -34,7 +36,7 @@
 
   <h2>Title: <strong><?php echo $book->name() ?></strong></h2>
   <span class="availability">
-  <?php if ($book->availability()==0) {?>
+  <?php if ($book->availability()==1) {?>
       Available
   <?php  }else{?>
     unavailable (took by : <?php echo $book->availability() ?>)
@@ -52,6 +54,10 @@
 
   <hr>
 
+
+
+
+  <!-- FORM TAKE/RETURN -->
   <?php if ($book->availability()==1){ ?>
     <form class="" action="index.php" method="post">
       <input type="hidden" name="bookDetails" value="">

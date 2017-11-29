@@ -15,7 +15,9 @@ header{
 .row{
   margin: 0!important;
 }
-
+main{
+  margin-bottom: 50px;
+}
 .addForm{
   border: 1px solid #000;
 }

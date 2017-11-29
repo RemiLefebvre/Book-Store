@@ -7,6 +7,8 @@
   echo $message;
 } ?>
 <main class="mt-5 container card">
+
+  <!-- FORM ADD -->
   <form class="mb-5 addForm" action="index.php" method="post">
     <h3>Add Book:</h3>
     <input type="text" name="name" placeholder="Name">
@@ -34,6 +36,8 @@
   <hr>
   <hr>
 
+
+  <!-- LIST OF BOOKS -->
   <h2>List of Books</h2>
   <table class="table-hover table-responsive">
     <thead>
@@ -79,6 +83,7 @@
   <hr>
   <hr>
 
+  <!-- LIST OF USERS -->
   <h2>List of users</h2>
   <table class="table-hover table-responsive">
     <thead>

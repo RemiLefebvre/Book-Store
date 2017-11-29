@@ -30,6 +30,6 @@
         <figure class="logo">
           <img src="http://www.eatlogos.com/education_logos/png/vector_colourful_education_book_logo.png" alt="">
         </figure>
-        <h1>Book store</h1>
-        <a href="index.php">Home</a>
+        <a href="index.php"><h1><strong>Book store</strong></h1></a>
+        <a href="index.php"><h2>Home</h2></a>
       </header>

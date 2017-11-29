@@ -121,17 +121,4 @@ class BookManager{
       return $q;
     }
 
-  /*
-  **Get bookList
-  */
-  // public function getBookList($info){
-  //   $listBook = [];
-  //   $q = $this->db->query('SELECT * FROM books LEFT JOIN users ON books.id=users.idVehicle ORDER BY books.id DESC');
-  //
-  //   while ($donnees = $q->fetch(PDO::FETCH_ASSOC)){
-  //     $listBook[] = createBook(["id" => $donnees['idVehicle'],"name" => $donnees['name'],"model" => $donnees['model'],"detail" => $donnees['detail'],"type" => $donnees['type'],"sourceImg" => $donnees['sourceImg']]);
-  //   }
-  //   return $listBook;
-  // }
-
 } ?>
