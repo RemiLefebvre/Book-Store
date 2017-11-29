@@ -15,6 +15,7 @@
         <!-- Favicon.ico  -->
 	      <link rel="icon" href="img/logo.png">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="icon" href="http://www.favicon.cc/logo3d/554683.png">
 
         <!-- CSS -->
         <link rel="stylesheet" href="css/normalize.css">
