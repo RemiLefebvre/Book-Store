@@ -8,6 +8,7 @@
 } ?>
 <main class="mt-5 container card">
 
+
   <!-- FORM ADD -->
   <form class="mb-5 addForm" action="index.php" method="post">
     <h3>Add Book:</h3>
@@ -36,8 +37,17 @@
   <hr>
   <hr>
 
-
   <!-- LIST OF BOOKS -->
+
+  <form class="" action="index.php" method="post">
+    <label for="">Select/Filtre</label>
+    <select class="" name="select">
+      <option value="adultsBook">Adults books</option>
+      <option value="childsBook">Childs books</option>
+    </select>
+    <input type="submit" name="" value="ok">
+  </form>
+
   <h2>List of Books</h2>
   <table class="table-hover table-responsive">
     <thead>
